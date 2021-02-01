@@ -14,12 +14,23 @@ public class Course {
     private int weekDuration;
     private Collection<Student> students;
 
-    public Course(String courseName, LocalDate startDate, int weekDuration) {
-        id = CourseSequencer.nextCourseId();
+    public Course() {
     }
 
-    public Course(int id, String courseName, LocalDate startDate, int weekDuration, Collection<Student> students) {
-        this.id = CourseSequencer.nextCourseId();
+    public Course(String courseName, LocalDate startDate, int weekDuration) {
+        this.courseName = courseName;
+        this.startDate = startDate;
+        this.weekDuration = weekDuration;
+    }
+
+    public Course(int id, String courseName, LocalDate startDate, int weekDuration) {
+        this.id = id;
+        this.courseName = courseName;
+        this.startDate = startDate;
+        this.weekDuration = weekDuration;
+    }
+
+    public Course(String courseName, LocalDate startDate, int weekDuration, Collection<Student> students) {
         this.courseName = courseName;
         this.startDate = startDate;
         this.weekDuration = weekDuration;
@@ -104,7 +115,7 @@ public class Course {
     @Override
     public String toString() {
         return "Course{" +
-                "courseId=" + id +
+                "id=" + id +
                 ", courseName='" + courseName + '\'' +
                 ", startDate=" + startDate +
                 ", weekDuration=" + weekDuration +
@@ -112,4 +123,3 @@ public class Course {
                 '}';
     }
 }
-
